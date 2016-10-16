@@ -6,11 +6,15 @@ payload = json.dumps({'token': 'ef24eaa8e037499e9eb6b829328a1365', 'github': git
 r = requests.post('http://challenge.code2040.org/api/register', payload)
 
 payload = json.dumps({'token': 'ef24eaa8e037499e9eb6b829328a1365'})
-r = requests.post('http://challenge.code2040.org/api/reverse', payload)
+r = requests.post('http://challenge.code2040.org/api/haystack', payload)
 
-originalString = json.loads(r.text)["result"]
+originalContent = json.loads(r.text)
+needle = originalContent["needle"]
+haystack = originalContent["haystack"]
 
-reversedString = originalString[::-1]
+index = -1
+if needle in haystack:
+    index = haystack.index(needle)
 
-payload = json.dumps({'token': 'ef24eaa8e037499e9eb6b829328a1365', 'string': reversedString})
+payload = json.dumps({'token': 'ef24eaa8e037499e9eb6b829328a1365', 'needle': index})
 r = requests.post('http://challenge.code2040.org/api/reverse/validate', payload)
