@@ -1,2 +1,2 @@
-# Israel-Teru-Code2040-Fellow-s-Application
+# Israel-Teru-Code2040-Fellows-Application
 First coding challenge
