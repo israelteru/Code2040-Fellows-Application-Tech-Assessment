@@ -17,4 +17,4 @@ if needle in haystack:
     index = haystack.index(needle)
 
 payload = {'token': 'ef24eaa8e037499e9eb6b829328a1365', 'needle': index}
-r = requests.post('http://challenge.code2040.org/api/reverse/validate', payload)
+r = requests.post('http://challenge.code2040.org/api/haystack/validate', payload)
