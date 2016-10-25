@@ -19,4 +19,5 @@ intervalToUse = datetime.timedelta(seconds=interval)
 newDatestamp = (datestampToUse + intervalToUse).isoformat()
 
 payload = {'token': 'ef24eaa8e037499e9eb6b829328a1365', 'datestamp': newDatestamp}
-r = requests.post('http://challenge.code2040.org/api/dating/validate', payload)
+r = requests.post('http://challenge.code2040.org/api/dating/validate', json = payload)
+print r.text
