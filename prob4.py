@@ -16,8 +16,7 @@ interval = json.loads(r.text)["interval"]
 # add given number of seconds to a given iso8601 date to find the new date
 datestampToUse = iso8601.parse_date(datestamp)
 intervalToUse = datetime.timedelta(seconds=interval)
-newDatestamp = (datestampToUse + intervalToUse).isoformat()
+newDatestamp = (datestampToUse + intervalToUse).isoformat().replace("+00:00", "Z")
 
 payload = {'token': 'ef24eaa8e037499e9eb6b829328a1365', 'datestamp': newDatestamp}
 r = requests.post('http://challenge.code2040.org/api/dating/validate', json = payload)
-print r.text
