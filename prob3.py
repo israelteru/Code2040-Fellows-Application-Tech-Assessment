@@ -16,7 +16,7 @@ array = json.loads(r.text)["array"]
 answer = []
 for stringElt in array:
     if not stringElt.startswith(prefix):
-        answer.append(stringElt)
+        answer.append(stringElt.encode("ascii"))
 print answer
 #answer = [stringElt.encode("ascii") for stringElt in array if not stringElt.startswith(prefix)]
 #print answer
